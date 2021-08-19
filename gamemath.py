@@ -105,3 +105,62 @@ class Window1:
       btn_coninue = Button(self.frame2, text="Next", bg="#6AA84F", command=self.callChooseWindow,font = "Arial 10 bold")
       btn_coninue.grid(row=4,column=4,padx=70,pady=110)
       #end frame2
+
+      #######################frame 3##################      
+      lbl_stdInfo = Label(self.frame3,text='Choose Math Game',bg="#4A86E8",fg="white",font = "Arial 13 bold")
+      lbl_stdInfo.grid(row=0,column=1,padx=220,pady=40)
+
+      self.btn_addition = Button(self.frame3,anchor="w",text="Addition +",width=12, bg="lightgrey", command=self.additionPress,font = "Arial 10 bold")      
+      self.btn_addition.grid(row=1,column=1,padx=250,pady=5,sticky=W)
+
+      self.btn_subtraction = Button(self.frame3,anchor="w",text="Subtraction -",width=12, bg="lightgrey", command=self.subtractionPress,font = "Arial 10 bold")  
+      self.btn_subtraction.grid(row=2,column=1,padx=250,pady=5,sticky=W)
+      
+      self.btn_division = Button(self.frame3,anchor="w", text="Division "+chr(247),width=12, bg="lightgrey", command=self.divisionPress,font = "Arial 10 bold")      
+      self.btn_division.grid(row=3,column=1,padx=250,pady=5,sticky=W)
+
+      self.btn_multiplication = Button(self.frame3,anchor="w", text="Multiplication X",width=12, bg="lightgrey", command=self.multiplicationPress,font = "Arial 10 bold")      
+      self.btn_multiplication.grid(row=4,column=1,padx=250,pady=5,sticky=W)
+      
+      btn_back = Button(self.frame3, text="Back", bg="#FF9912", command=self.goBackToHowTo,font = "Arial 10 bold")
+      btn_back.grid(row=5,column=0,sticky=W,padx=20,pady=5)
+                        
+      btn_coninue = Button(self.frame3, text="Start", bg="#6AA84F", command=self.callGameplay,font = "Arial 10 bold")
+      btn_coninue.grid(row=5,column=2,padx=30,pady=120)
+      #end frame3
+
+      #######################frame 4 Addition##################
+      #declare and initialize variables with empty strings
+      addition = ""
+      subtraction = ""
+      multiplication = ""
+      division = ""
+      
+      #Label Addition +
+      lbl_heading_quiz = Label(self.frame4,text='Addition +',bg="#4A86E8",fg="white")
+      lbl_heading_quiz.config(font=("Arail", 16))
+      lbl_heading_quiz.grid(row=0,columnspan=4,pady=(5,15))
+
+      #Loop (create label from Random, and align using grid to the left to right) as mention in documentation
+      for row in range(1,9):     #outer for loop
+          col = []
+          for column in range(0,3):    #inner for loop
+              question = str(row+5)+"+"+str(column+2)+"="   #question that shown e.g 2+3
+              add = (row+5)+(column+2)
+              self.addAns.append(add)                       #appned in a list to store the answers of current questions
+              #label
+              labelQuestion = Label(self.frame4,text=question,bg="#4A86E8",fg="white")
+              labelQuestion.config(font=("Arail", 16))
+              labelQuestion.grid(row=row,column=column,padx=5,pady=5,sticky="nsew")
+              #input feild for user answer
+              entry_ans = Entry(self.frame4,width="5",bg="lightgrey", font = "Arial 12 bold",justify="center")
+              entry_ans.grid(row=row,column=column,sticky=E,padx=30)
+              self.frame4.grid_columnconfigure(column,weight=1)
+              col.append(entry_ans)   #append in a 1D list and then append in a 2D list to make a 2D list of answers
+          self.list_entry_add.append(col)
+
+
+      
+      btn_back = Button(self.frame4, text="Back", bg="#FF9912", command=self.goToChooseMenu1,font = "Arial 10 bold")
+      btn_back.grid(row=9,column=0,sticky=W,padx=20,pady=5)
+
