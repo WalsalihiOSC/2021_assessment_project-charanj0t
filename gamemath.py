@@ -164,3 +164,35 @@ class Window1:
       btn_back = Button(self.frame4, text="Back", bg="#FF9912", command=self.goToChooseMenu1,font = "Arial 10 bold")
       btn_back.grid(row=9,column=0,sticky=W,padx=20,pady=5)
 
+      btn_next = Button(self.frame4, text="Next", bg="#6AA84F", command=self.nextAddGo,font = "Arial 10 bold")
+      btn_next.grid(row=9,column=3,sticky=E,padx=20,pady=5)
+      #end frame4
+
+      #######################frame 5 Subtraction##################
+      #same as above , except change sign to -
+      addition = ""
+      subtraction = ""
+      multiplication = ""
+      division = ""
+      
+      
+      lbl_heading_quiz = Label(self.frame5,text='Subtraction -',bg="#4A86E8",fg="white")
+      lbl_heading_quiz.config(font=("Arail", 16))
+      lbl_heading_quiz.grid(row=0,columnspan=4,pady=(5,15))
+
+
+      for row in range(1,9):
+          col = []
+          for column in range(0,3):
+              question = str(row+5)+"-"+str(column+2)+"="
+              sub = (row+5)-(column+2)
+              self.subAns.append(sub)
+              labelQuestion = Label(self.frame5,text=question,bg="#4A86E8",fg="white")
+              labelQuestion.config(font=("Arail", 16))
+              labelQuestion.grid(row=row,column=column,padx=5,pady=5,sticky="nsew")
+              entry_ans = Entry(self.frame5,width="5",bg="lightgrey", font = "Arial 12 bold",justify="center")
+              entry_ans.grid(row=row,column=column,sticky=E,padx=30)
+              self.frame5.grid_columnconfigure(column,weight=1)
+              col.append(entry_ans)
+          self.list_entry_sub.append(col)
+
