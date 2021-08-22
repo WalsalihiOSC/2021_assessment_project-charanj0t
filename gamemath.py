@@ -196,3 +196,44 @@ class Window1:
               col.append(entry_ans)
           self.list_entry_sub.append(col)
 
+          btn_back = Button(self.frame5, text="Back", bg="#FF9912", command=self.goToChooseMenu2,font = "Arial 10 bold")
+      btn_back.grid(row=9,column=0,sticky=W,padx=20,pady=5)
+
+      btn_next = Button(self.frame5, text="Next", bg="#6AA84F", command=self.nextSubGo,font = "Arial 10 bold")
+      btn_next.grid(row=9,column=3,sticky=E,padx=20,pady=5)
+      #end frame5
+
+      #######################frame 6 Division##################
+      addition = ""
+      subtraction = ""
+      multiplication = ""
+      division = ""
+      
+      
+      lbl_heading_quiz = Label(self.frame6,text='Division '+chr(247),bg="#4A86E8",fg="white")
+      lbl_heading_quiz.config(font=("Arail", 16))
+      lbl_heading_quiz.grid(row=0,columnspan=4,pady=(5,15))
+      for row in range(1,9):
+          col = []
+          for column in range(0,3):
+              question = str(row+5)+chr(247)+str(column+2)+"="
+              div = (row+5)/(column+2)
+              self.divAns.append(div)
+              labelQuestion = Label(self.frame6,text=question,bg="#4A86E8",fg="white")
+              labelQuestion.config(font=("Arail", 16))
+              labelQuestion.grid(row=row,column=column,padx=5,pady=5,sticky="nsew")
+              entry_ans = Entry(self.frame6,width="5",bg="lightgrey", font = "Arial 12 bold",justify="center")
+              entry_ans.grid(row=row,column=column,sticky=E,padx=30)
+              self.frame6.grid_columnconfigure(column,weight=1)
+              col.append(entry_ans)
+          self.list_entry_div.append(col)
+
+
+      
+      btn_back = Button(self.frame6, text="Back", bg="#FF9912", command=self.goToChooseMenu3,font = "Arial 10 bold")
+      btn_back.grid(row=9,column=0,sticky=W,padx=20,pady=5)
+
+      btn_next = Button(self.frame6, text="Next", bg="#6AA84F", command=self.nextDivGo,font = "Arial 10 bold")
+      btn_next.grid(row=9,column=3,sticky=E,padx=20,pady=5)
+      #end frame6
+
